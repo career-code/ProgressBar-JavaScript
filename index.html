@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progress Bar</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500&display=swap');
+
+        /* Reset default margin, padding, and box-sizing for all elements */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Ubuntu', sans-serif;
+        }
+
+        /* Body styles */
+        body {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f6f7fb;
+        }
+
+        /* Main container styles */
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+            max-width: 400px;
+            width: 100%;
+        }
+
+        /* Styles for step circles and progress bar container */
+        .container .steps {
+            display: flex;
+            width: 100%;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        /* Styles for each step circle */
+        .steps .circle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 50px;
+            width: 50px;
+            color: #999;
+            font-size: 22px;
+            font-weight: 500;
+            border-radius: 50%;
+            background: #fff;
+            border: 4px solid #e0e0e0;
+            transition: all 200ms ease;
+        }
+
+        /* Styles for active step circle */
+        .steps .circle.active {
+            border-color: #4070f4;
+            color: #4070f4;
+        }
+
+        /* Styles for progress bar */
+        .steps .progress-bar {
+            position: absolute;
+            height: 4px;
+            width: 100%;
+            background: #e0e0e0;
+            z-index: -1;
+        }
+
+        /* Styles for progress indicator */
+        .progress-bar .indicator {
+            position: absolute;
+            height: 100%;
+            width: 0%;
+            background: #4070f4;
+            transition: all 300ms ease;
+        }
+
+        /* Styles for navigation buttons container */
+        .container .buttons {
+            display: flex;
+            gap: 20px;
+        }
+
+        /* Styles for navigation buttons */
+        .buttons button {
+            padding: 8px 25px;
+            background: #4070f4;
+            border: none;
+            border-radius: 8px;
+            color: #fff;
+            font-size: 16px;
+            font-weight: 400;
+            cursor: pointer;
+            transition: all 200ms linear;
+        }
+
+        /* Styles for active state of navigation buttons */
+        .buttons button:active {
+            transform: scale(0.97);
+        }
+
+        /* Styles for disabled state of navigation buttons */
+        .buttons button:disabled {
+            background: #e0e0e0;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="steps">
+            <span class="circle active">1</span>
+            <span class="circle">2</span>
+            <span class="circle">3</span>
+            <span class="circle">4</span>
+            <div class="progress-bar">
+                <span class="indicator"></span>
+            </div>
+        </div>
+        <div class="buttons">
+            <button id="prev" disabled>Prev</button>
+            <button id="next">Next</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
